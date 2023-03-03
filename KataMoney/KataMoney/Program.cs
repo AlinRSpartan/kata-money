@@ -4,20 +4,20 @@ public class Moneyy
 {
     static void Main()
     {   
-        double money = 5.47;
-        
-        //int totalPennies = (int)(money * 100);
-        //Console.WriteLine(totalPennies + "pennies");
-
-        //int noOf5Notes = totalPennies / 500;
-        //Console.WriteLine(noOf5Notes);
+        double money = 21474836.47;
 
         Console.WriteLine(GetMoney(money));
     }
 
     public static string GetMoney(double money)
     {
-        int totalPennies = (int)(money * 100);
+        if (money == 0) return "No money";
+        else if (money < 0) throw new ArgumentOutOfRangeException("Can't have negative money!");
+        int totalPennies;
+        checked 
+        { 
+            totalPennies = (int)(money * 100);
+        }
 
         int[] storeValues = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 
